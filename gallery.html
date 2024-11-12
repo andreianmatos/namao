@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nome Coisas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <!-- Year Links -->
+        <div id="year-categories">
+            <a class="selected" onclick="showPhotos('*', 'year')">All *</a>
+            <a onclick="showPhotos('2019', 'year')">2019</a>
+            <a onclick="showPhotos('2020', 'year')">2020</a>
+            <a onclick="showPhotos('2021', 'year')">2021</a>
+        </div>
+
+        <!-- Other Categories Links -->
+        <div id="other-categories">
+            <a class="selected" onclick="showPhotos('*', 'category')">All *</a>
+            <a onclick="showPhotos('maca', 'category')">Maçã</a>
+            <a onclick="showPhotos('pera', 'category')">Pêra</a>
+        </div>
+
+        <!-- Photo Display Area -->
+        <div id="photo-gallery"></div>
+    </main>
+
+    <script src="script_gallery.js"></script>
+</body>
+</html> 

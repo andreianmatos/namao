@@ -1,57 +1,40 @@
-/* Body to take up the full height of the screen and center content horizontally at the top */
+/* Full-page body styling */
 body {
     display: flex;
-    flex-direction: column; /* Align the items in a column */
-    justify-content: flex-start; /* Align at the top */
-    align-items: center; /* Center items horizontally */
-    min-height: 100vh; /* Ensure it takes full viewport height */
-    margin: 0; /* Remove default margin */
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Verdana', Geneva, sans-serif;
 }
 
-/* Add space to the top of the page */
+/* Category Links Styling */
 #year-categories, #other-categories {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
-    justify-content: center; /* Center the links horizontally */
-    margin-top: 30px; /* Add space on top of the links */
+    justify-content: center;
+    margin: 30px 0 20px;
 }
 
-/* Styling for the year categories list */
-#year-categories a {
-    color: #007bff; /* Blue color for links */
-    text-decoration: none; /* Remove underline for default state */
-    font-weight: normal;
+#year-categories a, #other-categories a {
+    color: #007bff;
+    text-decoration: none;
     cursor: pointer;
-    padding: 5px 10px; /* Add padding to make it look like a button */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
-    font-family: 'Verdana', Geneva, sans-serif; /* Font for other categories */
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Styling for the other categories list */
-#other-categories a {
-    color: #007bff; /* Blue color for links */
-    text-decoration: none; /* Remove underline for default state */
-    font-weight: normal;
-    cursor: pointer;
-    padding: 5px 10px; /* Add padding to make it look like a button */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
-    font-family: 'Verdana', Geneva, sans-serif; /* Font for other categories */
-}
-
-/* Hover effect: Button-like */
 #year-categories a:hover, #other-categories a:hover {
-    color: darkblue; /* Darker blue text on hover */
+    color: darkblue;
 }
 
-/* Active state (when clicked) */
-#year-categories a:active, #other-categories a:active {
-    color: darkblue; /* Ensure text remains dark blue */
+.selected {
+    font-weight: bold !important;
 }
 
-/* Photo gallery grid */
+/* Photo gallery styling */
 #photo-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -59,9 +42,9 @@ body {
     margin-top: 20px;
 }
 
-/* Styling for individual photos */
 .gallery-photo {
     width: 100%;
     height: auto;
     object-fit: cover;
 }
+
