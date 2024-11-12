@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>namao</title>
-        <link rel="apple-touch-icon" sizes="180x180" href="data/icon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="64x64" href="data/icon/favicon-32x32.png">
-        <link rel="manifest" href="/site.webmanifest">
-        <link rel="stylesheet" href="style.css">
-      </head>
+<head>
+    <meta charset="UTF-8">
+    <title>Namao Coisas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-    <header>
-        <h1>Welcome to Your Website</h1>
-    </header>
+    
     <main>
-        <h2>About This Page</h2>
-        <p>This is a simple HTML template to get started with a new webpage. Customize it with your own content and styling.</p>
+
+        <!-- Year Links -->
+        <div id="year-categories">
+            <a onclick="showPhotos('*', 'year')">All *</a>
+            <a onclick="showPhotos('2019', 'year')">2019</a>
+            <a onclick="showPhotos('2020', 'year')">2020</a>
+            <a onclick="showPhotos('2021', 'year')">2021</a>
+            <a onclick="showPhotos('2022', 'year')">2022</a>
+        </div>
+
+        <!-- Other Categories Links -->
+        <div id="other-categories">
+            <a onclick="showPhotos('*', 'category')">All *</a>
+            <a onclick="showPhotos('nature', 'category')">Nature</a>
+            <a onclick="showPhotos('folhas', 'category')">Folhas</a>
+            <a onclick="showPhotos('vermelho', 'category')">Vermelho</a>
+            <a onclick="showPhotos('comida', 'category')">Comida</a>
+            <a onclick="showPhotos('outras-maos', 'category')">Outras Mãos</a>
+        </div>
+
+        <!-- Photo Display Area -->
+        <div id="photo-gallery"></div>
+
     </main>
-    <footer>
-        <p>&copy; Footer</p>
-    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
