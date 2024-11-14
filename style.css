@@ -9,6 +9,32 @@ body {
     font-family: 'Verdana', Geneva, sans-serif;
 }
 
+/* Navigation container styling */
+.nav-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 15px; /* Space between the buttons */
+}
+
+/* Style for both the Gallery and Info buttons */
+.gallery-button, .info-button {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    border: none;
+    background: none; /* Remove background */
+    padding: 8px 8px; 
+    transition: color 0.3s;
+}
+
+.gallery-button:hover, .info-button:hover {
+    color: darkblue;
+}
+
 /* Category Links Styling */
 #year-categories, #other-categories {
     display: flex;
@@ -34,17 +60,72 @@ body {
     font-weight: bold !important;
 }
 
-/* Photo gallery styling */
+/* Style for the gallery container */
 #photo-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Adds spacing between images */
+    padding: 20px; /* Padding around the gallery */
+    justify-content: center; /* Centers the images */
 }
 
+/* Style for each image in the gallery */
 .gallery-photo {
+    padding: 5px; /* Adds space between the border and the image */
+    max-width: 200px; /* Optional: Adjust the maximum width of images */
+    height: auto; /* Keeps the aspect ratio of images intact */
+}
+
+/* Style for the main content container */
+.info-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Left side image */
+.info-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensures the image fits nicely */
+}
+
+.info-image img {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit: cover; /* Cover ensures the image fills its container */
+}
+
+/* Right side text */
+.info-text {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* General styling for header and footer */
+header h1 {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
 }
 

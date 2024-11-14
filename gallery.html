@@ -7,20 +7,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+     <!-- Navigation Header -->
+     <header>
+        <div class="nav-container">
+            <a href="gallery.html" class="gallery-button">Info</a>
+            <a href="index.html" class="info-button">Back</a> 
+        </div>
+    </header>
     <main>
         <!-- Year Links -->
         <div id="year-categories">
-            <a class="selected" onclick="showPhotos('*', 'year')">All *</a>
-            <a onclick="showPhotos('2019', 'year')">2019</a>
-            <a onclick="showPhotos('2020', 'year')">2020</a>
-            <a onclick="showPhotos('2021', 'year')">2021</a>
+            <!-- Year links will be populated dynamically -->
         </div>
 
         <!-- Other Categories Links -->
         <div id="other-categories">
-            <a class="selected" onclick="showPhotos('*', 'category')">All *</a>
-            <a onclick="showPhotos('maca', 'category')">Maçã</a>
-            <a onclick="showPhotos('pera', 'category')">Pêra</a>
+            <!-- Category links will be populated dynamically -->
         </div>
 
         <!-- Photo Display Area -->
@@ -29,4 +31,4 @@
 
     <script src="script_gallery.js"></script>
 </body>
-</html> 
+</html>
