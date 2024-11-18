@@ -41,12 +41,12 @@ body {
 }
 
 .nav-text {
-    color: #007bff;
+    color: black;
 }
 
 /* Style for the Gallery and Info buttons */
 .gallery-button, .info-button {
-    color: #007bff;
+    color: black;
     text-decoration: none;
     font-size: 14px;
     cursor: pointer;
@@ -57,7 +57,7 @@ body {
 }
 
 .gallery-button:hover, .info-button:hover {
-    color: darkblue;
+    color: gray;
 }
 
 /* Category Links Styling */
@@ -70,7 +70,7 @@ body {
 }
 
 #year-categories a, #other-categories a {
-    color: #007bff;
+    color: black;
     text-decoration: none;
     cursor: pointer;
     padding: 5px 8px;
@@ -79,7 +79,7 @@ body {
 }
 
 #year-categories a:hover, #other-categories a:hover {
-    color: darkblue;
+    color: gray;
 }
 
 
@@ -91,7 +91,7 @@ body {
 /* Style for the selected year/category links */
 .selected {
     font-weight: bold;
-    color: darkblue;
+    color: gray;
 }
 
 /* Button to expand/collapse the "All" sections */
@@ -100,7 +100,7 @@ body {
     background-color: transparent;
     border: none;
     font-size: 20px;
-    color: #007bff;
+    color: black;
 }
 
 .toggle-button:focus {
@@ -135,6 +135,35 @@ main {
     padding: 5px;
     flex-grow: 1; /* Allow images to resize responsively */
     flex-basis: 200px; /* Set a base size for images */
+    transition: filter 0.3s ease;
+}
+
+/* Add a wrapper around the image to contain the hover effects */
+.gallery-photo-container {
+    position: relative;
+}
+
+/* Hide text by default */
+.gallery-photo-container .photo-date {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Blur effect on hover */
+.gallery-photo-container:hover .gallery-photo {
+    filter: blur(5px); /* Apply blur */
+}
+
+/* Show date text when hovering over the container */
+.gallery-photo-container:hover .photo-date {
+    opacity: 1; /* Make the date visible */
 }
 
 /* Footer styling (optional) */
@@ -147,7 +176,7 @@ footer {
 }
 
 footer a {
-    color: #007bff;
+    color: black;
     text-decoration: none;
 }
 

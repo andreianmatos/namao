@@ -123,11 +123,25 @@ function showPhotos(selection, type) {
 
     // Display each unique photo in the gallery
     selectedPhotos.forEach(photo => {
+        const container = document.createElement('div');
+        container.className = 'gallery-photo-container';
+        
         const img = document.createElement('img');
         img.src = photo;
         img.alt = 'Selected photo';
         img.className = 'gallery-photo';
-        photoGallery.appendChild(img);
+
+        // Extract date from filename for overlay
+        const date = photo.split("\\").pop().split("_").slice(0, 3).join("_");
+        img.setAttribute('data-date', date); // Store date as a data attribute
+
+        const dateText = document.createElement('div');
+        dateText.className = 'photo-date';
+        dateText.textContent = date;
+
+        container.appendChild(img);
+        container.appendChild(dateText);
+        photoGallery.appendChild(container);
     });
 }
 
@@ -141,6 +155,7 @@ function generateYearAndCategoryLinks() {
     const allYearLink = document.createElement('a');
     allYearLink.href = '#';
     allYearLink.textContent = 'Todos';
+    allYearLink.classList.add('selected')
     allYearLink.setAttribute('onclick', `showPhotos('*', 'year')`);
     yearContainer.appendChild(allYearLink);
 
@@ -169,6 +184,7 @@ function generateYearAndCategoryLinks() {
     const allCategoryLink = document.createElement('a');
     allCategoryLink.href = '#';
     allCategoryLink.textContent = 'Todas';
+    allCategoryLink.classList.add('selected')
     allCategoryLink.setAttribute('onclick', `showPhotos('*', 'category')`);
     categoryContainer.appendChild(allCategoryLink);
 
