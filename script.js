@@ -4,67 +4,70 @@ let images = [];
 let currentDraggedImage = null;
 
 // Define your updated photo paths organized by year and category
-const photos = {
+// Photo paths organized by year and category
+const photos = 
+{
     "2019": {
         "papeis": [
-            "data\\imagens_mao\\2019\\papeis\\2019_11_16_16_13_48_papeis.JPG"
+            "data\\imagens_mao\\2019\\papeis\\2019_11_16_16_13_48.JPG"
         ],
         "passaros": [
-            "data\\imagens_mao\\2019\\passaros\\2019_11_16_16_13_48_passaros.JPG"
+            "data\\imagens_mao\\2019\\passaros\\2019_11_16_16_13_48.JPG"
         ]
     },
     "2020": {
         "feridas": [
-            "data\\imagens_mao\\2020\\feridas\\2020_05_05_20_15_52_feridas.JPG"
+            "data\\imagens_mao\\2020\\feridas\\2020_05_05_20_15_52.JPG"
         ],
         "frutas": [
-            "data\\imagens_mao\\2020\\frutas\\2020_08_15_18_16_41_frutas.JPG"
+            "data\\imagens_mao\\2020\\frutas\\2020_08_15_18_16_41.JPG"
         ]
     },
     "2021": {
         "passaros": [
-            "data\\imagens_mao\\2021\\passaros\\2021_06_13_17_53_30_passaros.JPG"
+            "data\\imagens_mao\\2021\\passaros\\2021_06_13_17_53_30.JPG"
         ]
     },
     "2022": {
         "flores": [
-            "data\\imagens_mao\\2022\\flores\\2022_03_21_14_19_48_flores.JPEG",
-            "data\\imagens_mao\\2022\\flores\\2022_03_26_11_53_11_flores.JPEG",
-            "data\\imagens_mao\\2022\\flores\\2022_03_28_16_02_27_flores.JPEG"
+            "data\\imagens_mao\\2022\\flores\\2022_03_21_14_19_48.JPEG",
+            "data\\imagens_mao\\2022\\flores\\2022_03_26_11_53_11.JPEG",
+            "data\\imagens_mao\\2022\\flores\\2022_03_28_16_02_27.JPEG"
         ],
         "frutas": [
-            "data\\imagens_mao\\2022\\frutas\\2022_02_23_15_58_26_frutas.JPEG",
-            "data\\imagens_mao\\2022\\frutas\\2022_04_02_22_03_47_frutas.JPEG",
-            "data\\imagens_mao\\2022\\frutas\\2022_08_25_19_31_55_frutas.JPEG"
+            "data\\imagens_mao\\2022\\frutas\\2022_02_23_15_58_26.JPEG",
+            "data\\imagens_mao\\2022\\frutas\\2022_04_02_22_03_47.JPEG",
+            "data\\imagens_mao\\2022\\frutas\\2022_08_25_19_31_55.JPEG"
         ],
         "luz": [
-            "data\\imagens_mao\\2022\\luz\\2022_11_11_17_05_52_luz.JPEG"
+            "data\\imagens_mao\\2022\\luz\\2022_11_11_17_05_52.JPEG"
         ]
     },
     "2023": {
         "animais": [
-            "data\\imagens_mao\\2023\\animais\\2023_07_11_17_01_20_animais.JPEG"
+            "data\\imagens_mao\\2023\\animais\\2023_07_11_17_01_20.JPEG"
         ],
         "flores": [
-            "data\\imagens_mao\\2023\\flores\\2023_07_10_16_40_48_flores.JPEG"
+            "data\\imagens_mao\\2023\\flores\\2023_07_10_16_40_48.JPEG"
         ],
         "luz": [
-            "data\\imagens_mao\\2023\\luz\\2023_08_10_11_39_15_luz.JPEG"
+            "data\\imagens_mao\\2023\\luz\\2023_08_10_11_39_15.JPEG"
         ],
         "papeis": [
-            "data\\imagens_mao\\2023\\papeis\\2023_05_24_15_35_16_papeis.JPEG"
+            "data\\imagens_mao\\2023\\papeis\\2023_05_24_15_35_16.JPEG"
         ],
         "peixes": [
-            "data\\imagens_mao\\2023\\peixes\\2023_08_20_20_43_24_peixes.JPEG"
+            "data\\imagens_mao\\2023\\peixes\\2023_08_20_20_43_24.JPEG"
         ]
     },
     "2024": {
         "feridas": [
-            "data\\imagens_mao\\2024\\feridas\\2024_10_02_13_05_17_feridas.JPEG"
+            "data\\imagens_mao\\2024\\feridas\\2024_10_02_13_05_17.JPEG"
         ]
     },
     "2025": {}
 };
+
 
 // Set the default selection to show all years
 let selectedYear = '*';
