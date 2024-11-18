@@ -83,13 +83,13 @@ function showPhotos(selection, type) {
         document.querySelector(`#other-categories a[onclick="showPhotos('${selection}', 'category')"]`).classList.add('selected');
     }
 
-    const selectedPhotos = new Set();
+    const selectedPhotos = new Set(); // A Set to avoid duplicates
 
     // If both filters are set to "All" (`*`), show all photos
     if (selectedYear === '*' && selectedCategory === '*') {
         Object.values(photos).forEach(yearPhotos => {
             Object.values(yearPhotos).forEach(categoryPhotos => {
-                categoryPhotos.forEach(photo => selectedPhotos.add(photo));
+                categoryPhotos.forEach(photo => selectedPhotos.add(photo)); // Add photos to set
             });
         });
     } else {
@@ -102,7 +102,7 @@ function showPhotos(selection, type) {
             const yearPhotos = photos[year] || {};
             categoriesToShow.forEach(category => {
                 const categoryPhotos = yearPhotos[category] || [];
-                categoryPhotos.forEach(photo => selectedPhotos.add(photo));
+                categoryPhotos.forEach(photo => selectedPhotos.add(photo)); // Add photos to set
             });
         });
     }
@@ -120,13 +120,13 @@ function showPhotos(selection, type) {
 // Function to generate year and category links dynamically
 function generateYearAndCategoryLinks() {
     // Generate year links dynamically
-    const yearContainer = document.getElementById('year-categories');
+    const yearContainer = document.getElementById('year-links');
     yearContainer.innerHTML = ''; // Clear existing links
 
     // Add "All *" option for years
     const allYearLink = document.createElement('a');
     allYearLink.href = '#';
-    allYearLink.textContent = 'All *';
+    allYearLink.textContent = 'Todos';
     allYearLink.setAttribute('onclick', `showPhotos('*', 'year')`);
     yearContainer.appendChild(allYearLink);
 
@@ -148,17 +148,17 @@ function generateYearAndCategoryLinks() {
     });
 
     // Generate category links dynamically
-    const categoryContainer = document.getElementById('other-categories');
+    const categoryContainer = document.getElementById('category-links');
     categoryContainer.innerHTML = ''; // Clear existing links
 
     // Add "All *" option for categories
     const allCategoryLink = document.createElement('a');
     allCategoryLink.href = '#';
-    allCategoryLink.textContent = 'All *';
+    allCategoryLink.textContent = 'Todas';
     allCategoryLink.setAttribute('onclick', `showPhotos('*', 'category')`);
     categoryContainer.appendChild(allCategoryLink);
 
-    // Add category links for all unique categories
+    // Generate links for each category
     allCategories.forEach(category => {
         const categoryLink = document.createElement('a');
         categoryLink.href = '#';
@@ -168,9 +168,25 @@ function generateYearAndCategoryLinks() {
     });
 }
 
-// Initial call to generate links and show all photos on page load
-document.addEventListener("DOMContentLoaded", () => {
+// Function to toggle showing of year links
+function toggleAllYearLinks() {
+    const yearLinks = document.getElementById('year-links');
+    yearLinks.classList.toggle('hidden');
+    const yearToggleButton = document.getElementById('year-toggle-button');
+    yearToggleButton.textContent = yearLinks.classList.contains('hidden') ? '+' : '-';
+}
+
+// Function to toggle showing of category links
+function toggleAllCategoryLinks() {
+    const categoryLinks = document.getElementById('category-links');
+    categoryLinks.classList.toggle('hidden');
+    const categoryToggleButton = document.getElementById('category-toggle-button');
+    categoryToggleButton.textContent = categoryLinks.classList.contains('hidden') ? '+' : '-';
+}
+
+// Initialize the year and category links when the page loads
+window.onload = function () {
     generateYearAndCategoryLinks();
-    showPhotos('*', 'year');
-    showPhotos('*', 'category');
-});
+    showPhotos('*', 'year'); // Default show all photos for year
+    showPhotos('*', 'category'); // Default show all photos for category
+};

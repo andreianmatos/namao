@@ -1,0 +1,153 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Verdana', Geneva, sans-serif;
+}
+
+/* Top banner styling */
+.top-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+}
+
+/* Left navigation section */
+.left-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding-left: 20px;  /* Adds space from the left edge */
+    padding-right: 20px; /* Optional: adds space from the right edge */
+    padding-top: 20px; /* Optional: adds space from the right edge */
+}
+
+/* Right navigation section */
+.right-nav {
+    display: flex;
+    gap: 15px;
+    padding-right: 20px; /* Adds space from the right edge */
+    padding-top: 20px; /* Optional: adds space from the right edge */
+}
+
+.nav-text {
+    color: #007bff;
+}
+
+/* Style for the Gallery and Info buttons */
+.gallery-button, .info-button {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 8px;
+    transition: color 0.3s;
+}
+
+.gallery-button:hover, .info-button:hover {
+    color: darkblue;
+}
+
+/* Category Links Styling */
+#year-categories, #other-categories {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    justify-content: flex-start; /* Align to the left */
+}
+
+#year-categories a, #other-categories a {
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 5px 8px;
+    transition: color 0.3s;
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+#year-categories a:hover, #other-categories a:hover {
+    color: darkblue;
+}
+
+
+/* Hidden element styling */
+.hidden {
+    display: none;
+}
+
+/* Style for the selected year/category links */
+.selected {
+    font-weight: bold;
+    color: darkblue;
+}
+
+/* Button to expand/collapse the "All" sections */
+.toggle-button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: #007bff;
+}
+
+.toggle-button:focus {
+    outline: none;
+}
+
+
+/* Main content styling */
+main {
+    padding-top: 120px; /* Offset for the fixed header */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center all elements */
+    width: 100%;
+}
+
+/* Photo gallery container */
+#photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    justify-content: center;
+    width: 100%; /* Ensure it fits the screen */
+    max-width: 100vw;
+}
+
+/* Individual photo styling */
+.gallery-photo {
+    max-width: 200px;
+    height: auto;
+    padding: 5px;
+    flex-grow: 1; /* Allow images to resize responsively */
+    flex-basis: 200px; /* Set a base size for images */
+}
+
+/* Footer styling (optional) */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+    max-width: 100vw;
+    width: 100%;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+

@@ -4,27 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nome Coisas</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_gallery.css">
 </head>
 <body>
-     <!-- Navigation Header -->
-     <header>
-        <div class="nav-container">
-            <a href="gallery.html" class="gallery-button">Info</a>
-            <a href="index.html" class="info-button">Back</a> 
+    <!-- Fixed Header -->
+    <header class="top-banner">
+        <!-- Left Section: Year and Category Links -->
+        <div class="left-nav">
+            <!-- Year Links -->
+            <div id="year-categories">
+                <span class="nav-text ">Anos</span>
+                <button id="year-toggle-button" class="toggle-button" onclick="toggleAllYearLinks()">+</button>
+                <div id="year-links" class="hidden">
+                    <!-- Year links will be populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Category Links -->
+            <div id="other-categories">
+                <span class="nav-text ">Categorias</span>
+                <button id="category-toggle-button" class="toggle-button" onclick="toggleAllCategoryLinks()">+</button>
+                <div id="category-links" class="hidden">
+                    <!-- Category links will be populated dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section: Navigation Buttons -->
+        <div class="right-nav">
+            <a href="index.html" class="gallery-button">Back</a>
+            <a href="info.html" class="info-button">Info</a> 
         </div>
     </header>
+
+    <!-- Main Content Area -->
     <main>
-        <!-- Year Links -->
-        <div id="year-categories">
-            <!-- Year links will be populated dynamically -->
-        </div>
-
-        <!-- Other Categories Links -->
-        <div id="other-categories">
-            <!-- Category links will be populated dynamically -->
-        </div>
-
         <!-- Photo Display Area -->
         <div id="photo-gallery"></div>
     </main>
