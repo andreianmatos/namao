@@ -117,15 +117,22 @@ main {
     width: 100%;
 }
 
+
+.gallery-container {
+    display: flex;
+    justify-content: center; /* Center the photo gallery container */
+    width: 100%;
+    padding: 0 20px;  /* Adds space around the container to prevent images from touching edges */
+    max-width: 1600px;  /* Optional: set a max-width for the gallery */
+}
+
 /* Photo gallery container */
 #photo-gallery {
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 20px;
-    justify-content: center;
-    width: 100%; /* Ensure it fits the screen */
-    max-width: 100vw;
+    flex-wrap: wrap;  /* Allow images to wrap into rows */
+    gap: 15px;  /* Space between images */
+    justify-content: flex-start;  /* Align images to the left within the container */
+    width: 100%; /* Ensure the container takes full width */
 }
 
 /* Individual photo styling */

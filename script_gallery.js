@@ -132,7 +132,7 @@ function showPhotos(selection, type) {
         img.className = 'gallery-photo';
 
         // Extract date from filename for overlay
-        const date = photo.split("\\").pop().split("_").slice(0, 3).join("_");
+        const date = photo.split("\\").pop().split("_").slice(0, 3).reverse().join(".");
         img.setAttribute('data-date', date); // Store date as a data attribute
 
         const dateText = document.createElement('div');
