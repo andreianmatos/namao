@@ -60,29 +60,6 @@ body {
     color: gray;
 }
 
-/* Category Links Styling */
-#year-categories, #other-categories {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    flex-wrap: wrap; /* Allow wrapping on small screens */
-    justify-content: flex-start; /* Align to the left */
-}
-
-#year-categories a, #other-categories a {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-    padding: 5px 8px;
-    transition: color 0.3s;
-    white-space: nowrap; /* Prevent wrapping */
-}
-
-#year-categories a:hover, #other-categories a:hover {
-    color: gray;
-}
-
-
 /* Hidden element styling */
 .hidden {
     display: none;
@@ -173,17 +150,87 @@ main {
     opacity: 1; /* Make the date visible */
 }
 
-/* Footer styling (optional) */
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #f0f0f0;
-    max-width: 100vw;
+
+/* Overlay menu styling */
+.overlay-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+; /* Dark semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Below the header (which is 2000) */
+    visibility: hidden; /* Hidden by default */
+    opacity: 0; /* Invisible by default */
+    padding-top: 60px; /* Offset for the header */
 }
 
-footer a {
+.overlay-menu.active {
+    visibility: visible; /* Make visible */
+    opacity: 1; /* Fade in */
+}
+
+.overlay-content {
+    text-align: center;
+    color: black;
+}
+
+.overlay-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.overlay-content li {
+    margin: 10px 0;
+}
+
+.overlay-content a {
     color: black;
     text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s;
 }
 
+.overlay-content a:hover {
+    color: gray;
+}
+
+/* Ensure no scroll when overlay is active */
+body.overlay-active {
+    overflow: hidden;
+}
+
+/* Header remains accessible */
+.top-banner {
+    z-index: 2000; /* Above the overlay menu */
+    background-color: rgba(255, 255, 255, 0.9);
+}
+/* Style for the year/category container */
+.overlay-content #year-links, .overlay-content #category-links {
+    display: flex;
+    gap: 0px;  /* Remove vertical space between items within each section */
+    margin-bottom: 40px;  /* Larger space between the "Years" and "Categories" */
+}
+
+/* Style for the individual links */
+.overlay-content #year-links a, .overlay-content #category-links a {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* Hover effect for the links */
+.overlay-content #year-links a:hover, .overlay-content #category-links a:hover {
+    color: gray;
+}
+
+/* Optional: Adjust gap between individual items horizontally (this will make links closer together horizontally) */
+.overlay-content #year-links, .overlay-content #category-links {
+    gap: 10px; /* Horizontal gap between individual items */
+}

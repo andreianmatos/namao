@@ -74,14 +74,18 @@ function showPhotos(selection, type) {
     // Update selected filters based on user click
     if (type === 'year') {
         selectedYear = selection;
-        // Update selection style for years
-        document.querySelectorAll('#year-categories a').forEach(link => link.classList.remove('selected'));
-        document.querySelector(`#year-categories a[onclick="showPhotos('${selection}', 'year')"]`).classList.add('selected');
+        // Remove 'selected' class from all year links
+        document.querySelectorAll('#year-links a').forEach(link => link.classList.remove('selected'));
+        // Add 'selected' class to the current selection
+        const selectedLink = document.querySelector(`#year-links a[data-year="${selection}"]`);
+        if (selectedLink) selectedLink.classList.add('selected');
     } else if (type === 'category') {
         selectedCategory = selection;
-        // Update selection style for categories
-        document.querySelectorAll('#other-categories a').forEach(link => link.classList.remove('selected'));
-        document.querySelector(`#other-categories a[onclick="showPhotos('${selection}', 'category')"]`).classList.add('selected');
+        // Remove 'selected' class from all category links
+        document.querySelectorAll('#category-links a').forEach(link => link.classList.remove('selected'));
+        // Add 'selected' class to the current selection
+        const selectedLink = document.querySelector(`#category-links a[data-category="${selection}"]`);
+        if (selectedLink) selectedLink.classList.add('selected');
     }
 
     const selectedPhotos = new Set(); // A Set to avoid duplicates by timestamp
@@ -147,52 +151,52 @@ function showPhotos(selection, type) {
 
 // Function to generate year and category links dynamically
 function generateYearAndCategoryLinks() {
-    // Generate year links dynamically
     const yearContainer = document.getElementById('year-links');
+    const categoryContainer = document.getElementById('category-links');
     yearContainer.innerHTML = ''; // Clear existing links
+    categoryContainer.innerHTML = '';
 
-    // Add "All *" option for years
+    // Generate "All" year link
     const allYearLink = document.createElement('a');
     allYearLink.href = '#';
-    allYearLink.textContent = 'Todos';
-    allYearLink.classList.add('selected')
+    allYearLink.textContent = '*';
+    allYearLink.setAttribute('data-year', '*');
     allYearLink.setAttribute('onclick', `showPhotos('*', 'year')`);
     yearContainer.appendChild(allYearLink);
+    if (selectedYear === '*') allYearLink.classList.add('selected');
+    yearContainer.appendChild(allYearLink);
 
-    // Generate links for each year
+    // Generate "All" category link
+    const allCategoryLink = document.createElement('a');
+    allCategoryLink.href = '#';
+    allCategoryLink.textContent = '*';
+    allCategoryLink.setAttribute('data-category', '*');
+    allCategoryLink.setAttribute('onclick', `showPhotos('*', 'category')`);
+    categoryContainer.appendChild(allCategoryLink);
+    if (selectedCategory === '*') allCategoryLink.classList.add('selected');
+    categoryContainer.appendChild(allCategoryLink);
+
+    // Generate year links
     Object.keys(photos).forEach(year => {
         const yearLink = document.createElement('a');
         yearLink.href = '#';
         yearLink.textContent = year;
+        yearLink.setAttribute('data-year', year);
         yearLink.setAttribute('onclick', `showPhotos('${year}', 'year')`);
         yearContainer.appendChild(yearLink);
     });
 
-    // Gather all unique categories across all years
+    // Generate category links
     const allCategories = new Set();
     Object.values(photos).forEach(yearPhotos => {
-        Object.keys(yearPhotos).forEach(category => {
-            allCategories.add(category);
-        });
+        Object.keys(yearPhotos).forEach(category => allCategories.add(category));
     });
 
-    // Generate category links dynamically
-    const categoryContainer = document.getElementById('category-links');
-    categoryContainer.innerHTML = ''; // Clear existing links
-
-    // Add "All *" option for categories
-    const allCategoryLink = document.createElement('a');
-    allCategoryLink.href = '#';
-    allCategoryLink.textContent = 'Todas';
-    allCategoryLink.classList.add('selected')
-    allCategoryLink.setAttribute('onclick', `showPhotos('*', 'category')`);
-    categoryContainer.appendChild(allCategoryLink);
-
-    // Generate links for each category
     allCategories.forEach(category => {
         const categoryLink = document.createElement('a');
         categoryLink.href = '#';
         categoryLink.textContent = category;
+        categoryLink.setAttribute('data-category', category);
         categoryLink.setAttribute('onclick', `showPhotos('${category}', 'category')`);
         categoryContainer.appendChild(categoryLink);
     });
@@ -219,3 +223,22 @@ document.addEventListener('DOMContentLoaded', function() {
     generateYearAndCategoryLinks();
     showPhotos('*', '*'); // Show all photos by default
 });
+
+// JavaScript function to toggle the overlay menu visibility
+function toggleOverlayMenu() {
+    const overlay = document.querySelector('.overlay-menu');
+    const body = document.body;
+    const toggleButton = document.querySelector('.toggle-button');
+
+    // Toggle the `active` class to show or hide the overlay
+    overlay.classList.toggle('active');
+
+    // Prevent background scrolling when overlay is open
+    if (overlay.classList.contains('active')) {
+        body.classList.add('overlay-active');
+        toggleButton.textContent = 'x'; // Change to close symbol
+    } else {
+        body.classList.remove('overlay-active');
+        toggleButton.textContent = '+'; // Change back to menu symbol
+    }
+}
